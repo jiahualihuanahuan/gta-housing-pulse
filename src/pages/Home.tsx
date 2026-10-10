@@ -37,17 +37,18 @@ export default function Home() {
         </tbody>
       </table>
 
-      <h2 className="section-title">Communities</h2>
+      <h2 className="section-title">Neighborhoods / Communities</h2>
       <table>
         <thead>
-          <tr><th>Area</th><th>Avg Price</th><th>YoY</th><th>Inventory</th></tr>
+          <tr><th>Neighborhood</th><th>City / Area</th><th>Avg Price</th><th>YoY</th><th>Inventory (mo)</th></tr>
         </thead>
         <tbody>
           {COMMUNITIES.map((c) => (
             <tr key={c.name}>
               <td>{c.name}</td>
+              <td>{c.city}</td>
               <td>${c.price.toLocaleString()}</td>
-              <td className="negative">{c.yoy}%</td>
+              <td className={c.yoy < -1 ? 'negative' : 'neutral'}>{c.yoy}%</td>
               <td>{c.inventory}</td>
             </tr>
           ))}
