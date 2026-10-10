@@ -1,17 +1,23 @@
 import { MACRO, OVERALL, BY_TYPE, COMMUNITIES, TRENDS } from '../data'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
 
-function TrendChart({ data, title }: { data: any[]; title: string }) {
+function TrendChart({ data, title }: { data: { year: string; price: number; projected: boolean }[]; title: string }) {
+  const chartData = data.map((d) => ({
+    year: d.year,
+    historical: d.projected ? null : d.price,
+    projected: d.projected || d.year === '2026' ? d.price : null,
+  }))
+
   return (
     <div className="card" style={{ marginBottom: 20 }}>
       <h3 style={{ marginBottom: 12 }}>{title}</h3>
       <ResponsiveContainer width="100%" height={220}>
-        <LineChart data={data}>
+        <LineChart data={chartData}>
           <XAxis dataKey="year" stroke="#94a3b8" />
           <YAxis stroke="#94a3b8" tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
-          <Tooltip formatter={(v: any) => `$${Number(v).toLocaleString()}`} />
-          <Line type="monotone" dataKey="price" stroke="#3b82f6" strokeWidth={2} dot={false}
-                strokeDasharray={(d: any) => d.projected ? '5 5' : '0'} />
+          <Tooltip formatter={(v: any) => (v ? `$${Number(v).toLocaleString()}` : '')} />
+          <Line type="monotone" dataKey="historical" stroke="#3b82f6" strokeWidth={2} dot={false} connectNulls />
+          <Line type="monotone" dataKey="projected" stroke="#3b82f6" strokeWidth={2} strokeDasharray="5 5" dot={false} connectNulls />
           <ReferenceLine x="2026" stroke="#f59e0b" strokeDasharray="3 3" />
         </LineChart>
       </ResponsiveContainer>
