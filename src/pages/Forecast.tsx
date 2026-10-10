@@ -2,15 +2,15 @@ import { useState, useMemo } from 'react'
 import { BASE_PRICES, DEFAULT_CHANGES, OFFICIAL } from '../data'
 
 export default function Forecast() {
-  const [region, setRegion] = useState('gta')
-  const [type, setType] = useState('semi')
+  const [region, setRegion] = useState('stonehaven')
+  const [type, setType] = useState('detached')
   const [rate, setRate] = useState(0)
   const [pop, setPop] = useState(0)
   const [inv, setInv] = useState(0)
   const [conf, setConf] = useState(0)
 
   const result = useMemo(() => {
-    const base = BASE_PRICES[region][type]
+    const base = BASE_PRICES[region]?.[type] ?? BASE_PRICES.gta[type]
     const def = DEFAULT_CHANGES[type]
     const y26 = Math.round(base * (1 + def.y26))
     const y27 = Math.round(y26 * (1 + def.y27))
@@ -34,14 +34,23 @@ export default function Forecast() {
       <div className="controls">
         <div>
           <div className="slider-group">
-            <label>Region</label>
+            <label>Neighborhood / Area</label>
             <select value={region} onChange={(e) => setRegion(e.target.value)}>
               <option value="gta">GTA Overall</option>
-              <option value="toronto">City of Toronto</option>
-              <option value="york">York Region</option>
-              <option value="peel">Peel / Mississauga</option>
-              <option value="durham">Durham</option>
-              <option value="oakville">Oakville / Halton</option>
+              <option value="stonehaven">Stonehaven (Newmarket)</option>
+              <option value="jefferson">Jefferson (Vaughan)</option>
+              <option value="woodbridge">Woodbridge</option>
+              <option value="maple">Maple</option>
+              <option value="kleinburg">Kleinburg</option>
+              <option value="unionville">Unionville</option>
+              <option value="thornhill">Thornhill</option>
+              <option value="leaside">Leaside</option>
+              <option value="foresthill">Forest Hill</option>
+              <option value="willowdale">Willowdale</option>
+              <option value="portcredit">Port Credit</option>
+              <option value="oakvillesouth">Oakville South</option>
+              <option value="ajax">Ajax</option>
+              <option value="whitby">Whitby</option>
             </select>
           </div>
           <div className="slider-group">
@@ -87,7 +96,7 @@ export default function Forecast() {
               {result.delta > 0 ? '+' : ''}{result.delta.toFixed(1)}%
             </span>
           </div>
-          <p className="note">Default path from current data + simple factor model. Official notes from TRREB/CMHC. Adjust sliders to see scenario impact.</p>
+          <p className="note">Neighborhood-level base prices (illustrative, based on recent market reports). Default path from simple factor model. Official notes from TRREB/CMHC. Adjust sliders for scenarios.</p>
         </div>
       </div>
     </div>
