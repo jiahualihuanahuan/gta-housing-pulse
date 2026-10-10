@@ -34,23 +34,30 @@ export default function Forecast() {
       <div className="controls">
         <div>
           <div className="slider-group">
-            <label>Neighborhood / Area</label>
+            <label>Neighborhood</label>
             <select value={region} onChange={(e) => setRegion(e.target.value)}>
               <option value="gta">GTA Overall</option>
-              <option value="stonehaven">Stonehaven (Newmarket)</option>
-              <option value="jefferson">Jefferson (Vaughan)</option>
-              <option value="woodbridge">Woodbridge</option>
-              <option value="maple">Maple</option>
-              <option value="kleinburg">Kleinburg</option>
-              <option value="unionville">Unionville</option>
-              <option value="thornhill">Thornhill</option>
-              <option value="leaside">Leaside</option>
-              <option value="foresthill">Forest Hill</option>
-              <option value="willowdale">Willowdale</option>
-              <option value="portcredit">Port Credit</option>
-              <option value="oakvillesouth">Oakville South</option>
-              <option value="ajax">Ajax</option>
-              <option value="whitby">Whitby</option>
+              <optgroup label="Newmarket">
+                <option value="stonehaven">Stonehaven-Wyndham</option>
+                <option value="armitage">Armitage</option>
+                <option value="summerhill">Summerhill Estates</option>
+                <option value="glenway">Glenway Estates</option>
+                <option value="woodland">Woodland Hill</option>
+                <option value="huron">Huron Heights-Leslie Valley</option>
+              </optgroup>
+              <optgroup label="Aurora">
+                <option value="auroraestates">Aurora Estates</option>
+                <option value="hillsstandrew">Hills of St. Andrew</option>
+                <option value="bayviewne">Bayview Northeast / Southeast</option>
+              </optgroup>
+              <optgroup label="Richmond Hill">
+                <option value="jefferson">Jefferson</option>
+                <option value="bayviewhill">Bayview Hill</option>
+                <option value="oakridges">Oak Ridges / Lake Wilcox</option>
+                <option value="southrichvale">South Richvale</option>
+                <option value="millpond">Mill Pond</option>
+                <option value="rougewoods">Rouge Woods</option>
+              </optgroup>
             </select>
           </div>
           <div className="slider-group">
@@ -96,7 +103,7 @@ export default function Forecast() {
               {result.delta > 0 ? '+' : ''}{result.delta.toFixed(1)}%
             </span>
           </div>
-          <p className="note">Neighborhood-level base prices (illustrative, based on recent market reports). Default path from simple factor model. Official notes from TRREB/CMHC. Adjust sliders for scenarios.</p>
+          <p className="note">Neighborhood prices are illustrative estimates based on recent market reports. Default path from simple factor model. Adjust sliders for scenarios.</p>
         </div>
       </div>
     </div>
