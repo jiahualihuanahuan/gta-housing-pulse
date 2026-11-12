@@ -48,6 +48,10 @@
 // - 2027–2028 TRENDS points (projected) and type-level 2022–2025 annuals (no official
 //   annual averages by type in the Historic Annual Statistics table).
 
+// Additional mortgage-rate history and Big Five posted rates are in
+// MORTGAGE_RATES (this file) and data/mortgage-rates.json. Those exports are
+// data-only; no page or forecast logic reads them yet.
+//
 export const MACRO = {
   bocRate: '2.50%',
   fixedMortgage: '6.19%',
@@ -161,4 +165,99 @@ export const OFFICIAL: Record<string, string> = {
   semi: 'Most resilient; near bottom or already stabilizing',
   detached: 'Soft balanced; mild further dip then recovery',
   goodschool: 'Smallest adjustment; earliest to bottom',
+}
+
+
+// ---------------------------------------------------------------------------
+// Mortgage rates (data-only export; not consumed by existing components)
+// Full weekly BoC 5-year history and source notes: data/mortgage-rates.json
+// Retrieved 12 Nov 2026 (America/Toronto) from official BoC and bank sources.
+// ---------------------------------------------------------------------------
+export const MORTGAGE_RATES = {
+  asOfRetrieved: '2026-11-12',
+  timezone: 'America/Toronto',
+  historyFile: 'data/mortgage-rates.json',
+  bocPolicy: {
+    latest: { rate: 2.5, announcementDate: '2026-10-28', effectiveDate: '2026-10-29', changeBps: 25 },
+    officialPage: 'https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/',
+    announcement: 'https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/',
+    nextScheduledAnnouncement: '2026-12-09',
+    // Decision dates in the last ~24 months. Rate changes: Valet V39079 effective
+    // dates (announcement = prior calendar day, BoC practice since 2021). Holds:
+    // announcement dates from the official key-rate page. Not every 2025 FAD
+    // hold may be listed if it was not in the page's recent-data table.
+    history: [
+      { announcementDate: '2024-10-23', effectiveDate: '2024-10-24', rate: 3.75, changeBps: -50, type: 'change' },
+      { announcementDate: '2024-12-11', effectiveDate: '2024-12-12', rate: 3.25, changeBps: -50, type: 'change' },
+      { announcementDate: '2025-01-29', effectiveDate: '2025-01-30', rate: 3.0, changeBps: -25, type: 'change' },
+      { announcementDate: '2025-03-12', effectiveDate: '2025-03-13', rate: 2.75, changeBps: -25, type: 'change' },
+      { announcementDate: '2025-06-04', effectiveDate: '2025-06-05', rate: 2.75, changeBps: 0, type: 'hold' },
+      { announcementDate: '2025-07-30', effectiveDate: '2025-07-31', rate: 2.75, changeBps: 0, type: 'hold' },
+      { announcementDate: '2025-09-17', effectiveDate: '2025-09-18', rate: 2.5, changeBps: -25, type: 'change' },
+      { announcementDate: '2025-10-29', effectiveDate: '2025-10-30', rate: 2.25, changeBps: -25, type: 'change' },
+      { announcementDate: '2025-12-10', effectiveDate: '2025-12-11', rate: 2.25, changeBps: 0, type: 'hold' },
+      { announcementDate: '2026-01-28', effectiveDate: '2026-01-29', rate: 2.25, changeBps: 0, type: 'hold' },
+      { announcementDate: '2026-03-18', effectiveDate: '2026-03-19', rate: 2.25, changeBps: 0, type: 'hold' },
+      { announcementDate: '2026-04-29', effectiveDate: '2026-04-30', rate: 2.25, changeBps: 0, type: 'hold' },
+      { announcementDate: '2026-06-10', effectiveDate: '2026-06-11', rate: 2.25, changeBps: 0, type: 'hold' },
+      { announcementDate: '2026-07-15', effectiveDate: '2026-07-16', rate: 2.25, changeBps: 0, type: 'hold' },
+      { announcementDate: '2026-09-02', effectiveDate: '2026-09-03', rate: 2.25, changeBps: 0, type: 'hold' },
+      { announcementDate: '2026-10-28', effectiveDate: '2026-10-29', rate: 2.5, changeBps: 25, type: 'change' },
+    ],
+  },
+  bocConventional5Year: {
+    series: 'V80691335',
+    latest: { date: '2026-11-11', rate: 6.19 },
+    about3MonthsAgo: { date: '2026-08-12', rate: 6.09 },
+    about6MonthsAgo: { date: '2026-05-13', rate: 6.09 },
+    // Posted 5-year conventional rose 10 bps on 2026-10-07 while the policy rate
+    // was still held at 2.25%.
+    lastChange: { date: '2026-10-07', from: 6.09, to: 6.19, changeBps: 10 },
+    page: 'https://www.bankofcanada.ca/rates/banking-and-financial-statistics/posted-interest-rates-offered-by-chartered-banks/',
+  },
+  bigFivePosted: {
+    rbc: {
+      page: 'https://www.rbcroyalbank.com/mortgages/mortgage-rates.html',
+      asOf: '2026-11-12',
+      prime: 4.7,
+      posted5YearFixed: 6.19,
+      posted5YearVariable: 4.7,
+      spreadPpt: 1.49,
+    },
+    td: {
+      page: 'https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates',
+      asOf: '2026-11-12',
+      tdMortgagePrime: 4.85,
+      posted5YearFixed: 6.14,
+      posted5YearVariable: 4.85,
+      spreadPpt: 1.29,
+    },
+    scotiabank: {
+      page: 'https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html',
+      asOf: '2026-11-12',
+      prime: 4.7,
+      primeChangedDate: '2026-10-29',
+      posted5YearFixed: 6.19,
+      // No 5-year variable row in the official nonspecial/posted table.
+      posted5YearVariable: null,
+      spreadPpt: null,
+    },
+    bmo: {
+      page: 'https://www.bmo.com/main/personal/mortgages/mortgage-rates/',
+      asOf: null,
+      posted5YearFixed: null,
+      posted5YearVariable: null,
+      spreadPpt: null,
+      status: 'not_retrieved',
+    },
+    cibc: {
+      page: 'https://www.cibc.com/en/personal-banking/mortgages/rates-table.html',
+      asOf: '2026-11-12',
+      posted5YearFixed: 6.49,
+      posted5YearFixedPublished: '2026-10-09',
+      posted5YearVariable: 4.7,
+      posted5YearVariablePublished: '2026-10-29',
+      spreadPpt: 1.79,
+    },
+  },
 }

@@ -48,3 +48,20 @@ These city-wide All Home Types figures are official but are not a substitute for
 - By-type months of inventory and bias labels (type tables in the October PDF do not include the 12-month MOI trend).
 - TRREB 2026 average-price forecast range ($1.00–1.03M); no newer official range was found.
 - Ontario GDP 2026 (~0.6%); Canada population growth (~0.5%) remains the latest official year-over-year figure.
+
+### Mortgage rates (added 12 Nov 2026)
+
+Existing overview fields `MACRO.bocRate` (2.50%) and `MACRO.fixedMortgage` (6.19%) are unchanged: they are the latest official Bank of Canada policy rate and the BoC conventional 5-year posted rate (series V80691335, as of 11 Nov 2026).
+
+A separate data-only export, `MORTGAGE_RATES` in `src/data.ts`, plus the full weekly history in [`data/mortgage-rates.json`](data/mortgage-rates.json), records BoC policy-rate decisions for the last ~24 months, the V80691335 weekly series, and Big Five posted 5-year fixed and variable rates from each bank’s official rates page or the official API that page calls. No component or forecast logic was changed, so these series are not yet shown in the UI.
+
+Latest posted 5-year closed rates retrieved 12 Nov 2026 (America/Toronto):
+- **RBC**: fixed 6.19%, variable 4.70% (prime + 0%), spread 1.49 ppt. Page: https://www.rbcroyalbank.com/mortgages/mortgage-rates.html
+- **TD**: fixed 6.14%, variable 4.85% (equal to TD Mortgage Prime; 15 bps above the BoC chartered-bank prime of 4.70%). Page/API: https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates and https://psservice.td.com/ca/en/carate/getRates
+- **Scotiabank**: conventional posted 5-year fixed 6.19%; no 5-year variable row in the official nonspecial table (3-year Ultimate Variable is 4.70%; prime 4.70%, changed 29 Oct 2026). APIs: https://dmtsms.scotiabank.com/api/rates/daily/nonspecialmortgage and https://dmtsms.scotiabank.com/api/rates/daily/prime
+- **CIBC**: posted 5-year fixed 6.49% (published 9 Oct 2026), posted 5-year variable 4.70% (published 29 Oct 2026), spread 1.79 ppt. API: https://www.cibconline.cibc.com/ebm-pno/api/v1/json/productRatesLegacy
+- **BMO**: not retrieved. The official page is JavaScript-rendered and timed out here; no May or August 2026 Wayback snapshots were found. Rates were not invented.
+
+BoC conventional 5-year posted (V80691335): 6.19% as of 11 Nov 2026; 6.09% on 12 Aug 2026 and 13 May 2026. It rose 10 bps on 7 Oct 2026 while the policy rate was still held at 2.25%. RBC’s posted 5-year fixed was already 6.19% on 26 Oct 2026 (two days before the policy hike) and was still 6.19% on 12 Nov 2026; prime and posted variable rose 25 bps with the hike. CIBC’s posted 5-year fixed carries a published date of 9 Oct 2026, also during the policy-rate hold.
+
+Wayback snapshots of RBC (May and August 2026) and of TD/Scotia pages did not contain usable numeric posted rates (placeholders or API-loaded values), so those 3- and 6-month bank-level posted figures are left blank rather than filled in.

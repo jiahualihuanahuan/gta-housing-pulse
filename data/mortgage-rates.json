@@ -1,0 +1,906 @@
+{
+  "asOfRetrieved": "2026-11-12",
+  "timezone": "America/Toronto",
+  "notes": [
+    "Only figures from official Bank of Canada Valet / web pages and official Big Five bank rate pages or the APIs those pages call. Nothing is interpolated or fabricated.",
+    "MACRO.bocRate and MACRO.fixedMortgage in src/data.ts remain the latest official snapshot (policy 2.50%; BoC conventional 5-year posted 6.19%).",
+    "Bank special/discount offers are recorded separately from posted rates and must not be treated as posted.",
+    "Wayback snapshots of bank rate pages around May and August 2026 often omitted numeric posted rates (placeholders or API-loaded values). Those gaps are left empty rather than filled."
+  ],
+  "bocPolicy": {
+    "series": "V39079",
+    "seriesLabel": "Target for the overnight rate (policy interest rate)",
+    "seriesUrl": "https://www.bankofcanada.ca/valet/series/V39079",
+    "officialPage": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/",
+    "latest": {
+      "rate": 2.5,
+      "announcementDate": "2026-10-28",
+      "effectiveDate": "2026-10-29",
+      "changeBps": 25,
+      "source": "https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/"
+    },
+    "nextScheduledAnnouncement": "2026-12-09",
+    "historyLast24Months": [
+      {
+        "announcementDate": "2024-10-23",
+        "effectiveDate": "2024-10-24",
+        "rate": 3.75,
+        "changeBps": -50,
+        "type": "change",
+        "source": "https://www.bankofcanada.ca/valet/observations/V39079/json",
+        "note": "Effective date from Valet V39079; announcement is the prior calendar day per BoC practice since 2021. Included as the last change before the 24-month window starting 2024-11-12."
+      },
+      {
+        "announcementDate": "2024-12-11",
+        "effectiveDate": "2024-12-12",
+        "rate": 3.25,
+        "changeBps": -50,
+        "type": "change",
+        "source": "https://www.bankofcanada.ca/valet/observations/V39079/json"
+      },
+      {
+        "announcementDate": "2025-01-29",
+        "effectiveDate": "2025-01-30",
+        "rate": 3.0,
+        "changeBps": -25,
+        "type": "change",
+        "source": "https://www.bankofcanada.ca/valet/observations/V39079/json"
+      },
+      {
+        "announcementDate": "2025-03-12",
+        "effectiveDate": "2025-03-13",
+        "rate": 2.75,
+        "changeBps": -25,
+        "type": "change",
+        "source": "https://www.bankofcanada.ca/valet/observations/V39079/json"
+      },
+      {
+        "announcementDate": "2025-06-04",
+        "effectiveDate": "2025-06-05",
+        "rate": 2.75,
+        "changeBps": 0,
+        "type": "hold",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2025-07-30",
+        "effectiveDate": "2025-07-31",
+        "rate": 2.75,
+        "changeBps": 0,
+        "type": "hold",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2025-09-17",
+        "effectiveDate": "2025-09-18",
+        "rate": 2.5,
+        "changeBps": -25,
+        "type": "change",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2025-10-29",
+        "effectiveDate": "2025-10-30",
+        "rate": 2.25,
+        "changeBps": -25,
+        "type": "change",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2025-12-10",
+        "effectiveDate": "2025-12-11",
+        "rate": 2.25,
+        "changeBps": 0,
+        "type": "hold",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2026-01-28",
+        "effectiveDate": "2026-01-29",
+        "rate": 2.25,
+        "changeBps": 0,
+        "type": "hold",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2026-03-18",
+        "effectiveDate": "2026-03-19",
+        "rate": 2.25,
+        "changeBps": 0,
+        "type": "hold",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2026-04-29",
+        "effectiveDate": "2026-04-30",
+        "rate": 2.25,
+        "changeBps": 0,
+        "type": "hold",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2026-06-10",
+        "effectiveDate": "2026-06-11",
+        "rate": 2.25,
+        "changeBps": 0,
+        "type": "hold",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2026-07-15",
+        "effectiveDate": "2026-07-16",
+        "rate": 2.25,
+        "changeBps": 0,
+        "type": "hold",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2026-09-02",
+        "effectiveDate": "2026-09-03",
+        "rate": 2.25,
+        "changeBps": 0,
+        "type": "hold",
+        "source": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+      },
+      {
+        "announcementDate": "2026-10-28",
+        "effectiveDate": "2026-10-29",
+        "rate": 2.5,
+        "changeBps": 25,
+        "type": "change",
+        "source": "https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/"
+      }
+    ],
+    "dailySeriesStart": "2024-11-01",
+    "dailySeriesNote": "Full business-daily observations are available from the Valet API; this file stores decision dates rather than every daily print."
+  },
+  "bocConventional5Year": {
+    "series": "V80691335",
+    "seriesLabel": "Conventional mortgage, 5-year, posted by major chartered banks",
+    "page": "https://www.bankofcanada.ca/rates/banking-and-financial-statistics/posted-interest-rates-offered-by-chartered-banks/",
+    "valet": "https://www.bankofcanada.ca/valet/observations/V80691335/json",
+    "latest": {
+      "date": "2026-11-11",
+      "rate": 6.19
+    },
+    "changesSince2024-11": [
+      {
+        "date": "2024-11-06",
+        "rate": 6.49,
+        "previousRate": null
+      },
+      {
+        "date": "2025-05-14",
+        "rate": 6.09,
+        "previousRate": 6.49,
+        "changeBps": -40
+      },
+      {
+        "date": "2026-10-07",
+        "rate": 6.19,
+        "previousRate": 6.09,
+        "changeBps": 10
+      }
+    ],
+    "comparison": {
+      "about6MonthsAgo": {
+        "date": "2026-05-13",
+        "rate": 6.09,
+        "note": "Weekly Wednesday observation nearest 6 months before 2026-11-12."
+      },
+      "about3MonthsAgo": {
+        "date": "2026-08-12",
+        "rate": 6.09,
+        "note": "Weekly Wednesday observation nearest 3 months before 2026-11-12."
+      }
+    },
+    "movesIndependentOfBocPolicy": [
+      {
+        "date": "2026-10-07",
+        "from": 6.09,
+        "to": 6.19,
+        "changeBps": 10,
+        "note": "BoC conventional 5-year posted rose 10 bps while the policy rate was still held at 2.25% (last policy change had been the 2025-10-29 cut; the next policy change was the 2026-10-28 hike)."
+      }
+    ],
+    "weeklyHistoryFrom": "2024-11-06",
+    "weeklyHistoryTo": "2026-11-11",
+    "weeklyObservations": [
+      {
+        "date": "2024-11-06",
+        "rate": 6.49
+      },
+      {
+        "date": "2024-11-13",
+        "rate": 6.49
+      },
+      {
+        "date": "2024-11-20",
+        "rate": 6.49
+      },
+      {
+        "date": "2024-11-27",
+        "rate": 6.49
+      },
+      {
+        "date": "2024-12-04",
+        "rate": 6.49
+      },
+      {
+        "date": "2024-12-11",
+        "rate": 6.49
+      },
+      {
+        "date": "2024-12-18",
+        "rate": 6.49
+      },
+      {
+        "date": "2024-12-25",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-01-01",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-01-08",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-01-15",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-01-22",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-01-29",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-02-05",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-02-12",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-02-19",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-02-26",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-03-05",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-03-12",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-03-19",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-03-26",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-04-02",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-04-09",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-04-16",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-04-23",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-04-30",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-05-07",
+        "rate": 6.49
+      },
+      {
+        "date": "2025-05-14",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-05-21",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-05-28",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-06-04",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-06-11",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-06-18",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-06-25",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-07-02",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-07-09",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-07-16",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-07-23",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-07-30",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-08-06",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-08-13",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-08-20",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-08-27",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-09-03",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-09-10",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-09-17",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-09-24",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-10-01",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-10-08",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-10-15",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-10-22",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-10-29",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-11-05",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-11-12",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-11-19",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-11-26",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-12-03",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-12-10",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-12-17",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-12-24",
+        "rate": 6.09
+      },
+      {
+        "date": "2025-12-31",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-01-07",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-01-14",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-01-21",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-01-28",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-02-04",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-02-11",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-02-18",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-02-25",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-03-04",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-03-11",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-03-18",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-03-25",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-04-01",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-04-08",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-04-15",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-04-22",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-04-29",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-05-06",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-05-13",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-05-20",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-05-27",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-06-03",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-06-10",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-06-17",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-06-24",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-07-01",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-07-08",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-07-15",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-07-22",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-07-29",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-08-05",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-08-12",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-08-19",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-08-26",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-09-02",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-09-09",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-09-16",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-09-23",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-09-30",
+        "rate": 6.09
+      },
+      {
+        "date": "2026-10-07",
+        "rate": 6.19
+      },
+      {
+        "date": "2026-10-14",
+        "rate": 6.19
+      },
+      {
+        "date": "2026-10-21",
+        "rate": 6.19
+      },
+      {
+        "date": "2026-10-28",
+        "rate": 6.19
+      },
+      {
+        "date": "2026-11-04",
+        "rate": 6.19
+      },
+      {
+        "date": "2026-11-11",
+        "rate": 6.19
+      }
+    ]
+  },
+  "bocCharteredBankPrime": {
+    "series": "V80691311",
+    "seriesLabel": "Prime rate posted by major chartered banks",
+    "latest": {
+      "date": "2026-11-11",
+      "rate": 4.7
+    },
+    "changesSince2024-11": [
+      {
+        "date": "2024-11-06",
+        "rate": 5.95,
+        "note": "Start of retrieved window, not necessarily a change date."
+      },
+      {
+        "date": "2024-12-18",
+        "rate": 5.45,
+        "previousRate": 5.95,
+        "changeBps": -50
+      },
+      {
+        "date": "2025-02-05",
+        "rate": 5.2,
+        "previousRate": 5.45,
+        "changeBps": -25
+      },
+      {
+        "date": "2025-03-19",
+        "rate": 4.95,
+        "previousRate": 5.2,
+        "changeBps": -25
+      },
+      {
+        "date": "2025-09-24",
+        "rate": 4.7,
+        "previousRate": 4.95,
+        "changeBps": -25
+      },
+      {
+        "date": "2025-11-05",
+        "rate": 4.45,
+        "previousRate": 4.7,
+        "changeBps": -25
+      },
+      {
+        "date": "2026-11-04",
+        "rate": 4.7,
+        "previousRate": 4.45,
+        "changeBps": 25,
+        "note": "Followed the 2026-10-28 policy-rate hike (effective 2026-10-29)."
+      }
+    ],
+    "valet": "https://www.bankofcanada.ca/valet/observations/V80691311/json"
+  },
+  "bigFivePosted": {
+    "rbc": {
+      "bank": "RBC Royal Bank",
+      "page": "https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
+      "retrieved": "2026-11-12",
+      "pageLastModifiedUtc": "2026-11-12T20:52:34Z",
+      "prime": {
+        "rate": 4.7,
+        "label": "Royal Bank of Canada Prime Rate"
+      },
+      "posted5YearFixedClosed": {
+        "rate": 6.19,
+        "apr": 6.22,
+        "term": "5 Year Closed",
+        "amortization": "25 years or less (same posted rate shown for >25 years)"
+      },
+      "posted5YearVariableClosed": {
+        "rate": 4.7,
+        "formula": "RBC Prime Rate + 0.000%",
+        "apr": 4.73,
+        "term": "5 Year Closed"
+      },
+      "postedFixedMinusVariableSpreadPpt": 1.49,
+      "specialOffersNotPosted": {
+        "fiveYearFixedClosed": {
+          "rate": 5.14,
+          "apr": 5.17,
+          "note": "Purchase and switch special, 25-year amortization or less."
+        },
+        "fiveYearVariableClosed": {
+          "rate": 4.4,
+          "formula": "RBC Prime Rate - 0.300%",
+          "apr": 4.43
+        }
+      },
+      "wayback": {
+        "about6Months": {
+          "snapshot": "https://web.archive.org/web/20260507174752id_/https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
+          "captured": "2026-05-07",
+          "posted5YearFixedClosed": null,
+          "note": "Snapshot HTML had '%' placeholders for posted fixed rates; numeric posted 5-year fixed was not captured. Not filled in."
+        },
+        "about3Months": {
+          "snapshot": "https://web.archive.org/web/20260823151720id_/https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
+          "captured": "2026-08-23",
+          "posted5YearFixedClosed": null,
+          "note": "Same gap: posted fixed-rate cells were placeholders in the archived HTML."
+        },
+        "twoDaysBeforeOct28Hike": {
+          "snapshot": "https://web.archive.org/web/20261026125215id_/https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
+          "captured": "2026-10-26",
+          "prime": 4.45,
+          "posted5YearFixedClosed": 6.19,
+          "posted5YearVariableClosed": 4.45,
+          "postedVariableApr": 4.48,
+          "special5YearFixedClosed": 5.14
+        },
+        "afterHike": {
+          "snapshot": "https://web.archive.org/web/20261111164854id_/https://www.rbcroyalbank.com/mortgages/mortgage-rates.html",
+          "captured": "2026-11-11",
+          "prime": 4.7,
+          "posted5YearFixedClosed": 6.19,
+          "posted5YearVariableClosed": 4.7,
+          "postedVariableApr": 4.73,
+          "special5YearFixedClosed": 5.14,
+          "note": "Posted 5-year fixed was unchanged at 6.19% through the 2026-10-28 policy hike; prime and posted 5-year variable rose 25 bps."
+        }
+      }
+    },
+    "td": {
+      "bank": "TD Canada Trust",
+      "page": "https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates",
+      "api": "https://psservice.td.com/ca/en/carate/getRates",
+      "apiNote": "Official rates API called by the TD mortgage-rates page (POST, ratesType=resl). Array fields are PostedRate, CeilingBPSCnt, SpecialRate, APR Value, PostedRateEnabled.",
+      "retrieved": "2026-11-12",
+      "httpDateUtc": "2026-11-12T20:54:49Z",
+      "tdMortgagePrime": {
+        "rate": 4.85,
+        "sourceField": "MTGV060C PostedRate",
+        "note": "The official page labels MTGV060C PostedRate as the TD Mortgage Prime Rate. This is 15 bps above the BoC chartered-bank prime series (4.70% as of 2026-11-11)."
+      },
+      "posted5YearFixedClosed": {
+        "rate": 6.14,
+        "productKey": "MTGF060C",
+        "aprSpecial": 5.311,
+        "specialRate": 5.29,
+        "highRatioPostedSame": true
+      },
+      "posted5YearVariableClosed": {
+        "rate": 4.85,
+        "productKey": "MTGV060C",
+        "formula": "TD Mortgage Prime Rate (posted)",
+        "specialRateConventional": 4.49,
+        "aprSpecialConventional": 4.511
+      },
+      "postedFixedMinusVariableSpreadPpt": 1.29,
+      "wayback": {
+        "about6Months": {
+          "captured": "2026-05-19",
+          "snapshot": "https://web.archive.org/web/20260519074107/https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates",
+          "postedRates": null,
+          "note": "The live page loads rates from psservice.td.com; archived HTML does not contain the numeric rates. No archived copy of the getRates API was found."
+        },
+        "about3Months": {
+          "captured": "2026-08-26",
+          "snapshot": "https://web.archive.org/web/20260826145344/https://www.td.com/ca/en/personal-banking/products/mortgages/mortgage-rates",
+          "postedRates": null,
+          "note": "Same gap: numeric rates are API-loaded and were not in the archived HTML."
+        }
+      }
+    },
+    "scotiabank": {
+      "bank": "Scotiabank",
+      "page": "https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html",
+      "retrieved": "2026-11-12",
+      "apiUpdateTime": "2026-11-11",
+      "apiRunDate": "2026-11-12",
+      "prime": {
+        "rate": 4.7,
+        "changedDate": "2026-10-29",
+        "api": "https://dmtsms.scotiabank.com/api/rates/daily/prime"
+      },
+      "posted5YearFixedClosed": {
+        "rate": 6.19,
+        "product": "CONVENTIONAL RESIDENTIAL, ETC",
+        "term": "5 Year",
+        "api": "https://dmtsms.scotiabank.com/api/rates/daily/nonspecialmortgage",
+        "note": "Same 6.19% is also printed for N.H.A. RESIDENTIAL, ETC 5-year."
+      },
+      "posted5YearVariableClosed": {
+        "rate": null,
+        "note": "The nonspecial/posted-term table has no 5-year variable row. It does list Ultimate Variable Rate, 3-year, at 4.70% (equal to prime)."
+      },
+      "posted3YearUltimateVariable": {
+        "rate": 4.7,
+        "product": "ULTIMATE VARIABLE RATE",
+        "term": "3 Year"
+      },
+      "variableTableFlexValue5YearClosed": {
+        "rate": 5.15,
+        "productId": "MORTGAGE PROMOTIONAL 1",
+        "pageLabel": "Scotia Flex Value Mortgage-Closed 5 Year Term",
+        "api": "https://dmtsms.scotiabank.com/api/rates/daily/varmortgage",
+        "note": "Shown on the official page in a column headed Posted Rate, but the product id is promotional. Not treated as a conventional posted 5-year variable."
+      },
+      "postedFixedMinusVariableSpreadPpt": null,
+      "spreadNote": "No conventional posted 5-year variable was published in the nonspecial table, so a posted fixed\u2013variable spread is not calculated.",
+      "wayback": {
+        "nearestTo6Months": {
+          "captured": "2026-06-08",
+          "snapshot": "https://web.archive.org/web/20260608051313id_/https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html",
+          "note": "No May 2026 snapshot was found. Archived HTML still had todaysRate 0.0 (API-loaded). Posted 5-year fixed was not in the snapshot. A stale aprRate of 4.91 appeared on the Flex Value 5-year product; that is a template APR, not used as an official posted rate."
+        },
+        "about3Months": {
+          "captured": "2026-08-01",
+          "snapshot": "https://web.archive.org/web/20260801014118id_/https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html",
+          "note": "Same gap: numeric posted rates come from dmtsms.scotiabank.com and were not archived."
+        }
+      }
+    },
+    "bmo": {
+      "bank": "BMO",
+      "page": "https://www.bmo.com/main/personal/mortgages/mortgage-rates/",
+      "primePage": "https://www.bmo.com/en-ca/main/personal/rates/rates-at-bmo/",
+      "retrievedAttempt": "2026-11-12",
+      "posted5YearFixedClosed": null,
+      "posted5YearVariableClosed": null,
+      "status": "not_retrieved",
+      "note": "The official rates page is JavaScript-rendered. Direct HTTP requests to bmo.com timed out from this environment; the fetched HTML had empty rate cells. BMO's prime page lists a Canada Prime Rate effective 2026-10-29 but did not include the numeric rate in the static HTML. No May or August 2026 Wayback snapshots of the BMO mortgage-rates page were found (latest archived snapshot in the CDX results was 2026-03-16). Rates were not invented.",
+      "footnoteOnPage": {
+        "source": "https://www.bmo.com/main/personal/mortgages/mortgage-rates/compare/",
+        "text": "The compare-rates page footnote states that the 5-year variable posted rate (closed) term is equal to BMO Prime Rate + 0.15%. The current prime number itself was not retrieved, so this formula is recorded but not converted into a rate."
+      }
+    },
+    "cibc": {
+      "bank": "CIBC",
+      "page": "https://www.cibc.com/en/personal-banking/mortgages/rates-table.html",
+      "api": "https://www.cibconline.cibc.com/ebm-pno/api/v1/json/productRatesLegacy",
+      "apiNote": "Official productRatesLegacy API referenced from https://www.cibc.com/en/jcr:content/rdsjsonfile.rdsdata.json. On the rates table, field 1 is POSTED RATE; field 18 is the UNINSURED special column; field 34 is a further special (often insured).",
+      "retrieved": "2026-11-12",
+      "posted5YearFixedClosed": {
+        "rate": 6.49,
+        "productCode": "FRCM",
+        "rateField": 1,
+        "publishedDate": "2026-10-09",
+        "publishedDateNote": "Date printed on the official rate record: Fri Oct 09 00:00:00 EDT 2026."
+      },
+      "posted5YearVariableClosed": {
+        "rate": 4.7,
+        "productCode": "5YRVARCLO",
+        "rateField": 1,
+        "publishedDate": "2026-10-29"
+      },
+      "postedFixedMinusVariableSpreadPpt": 1.79,
+      "specialsNotPosted": {
+        "fiveYearFixedUninsured": {
+          "rate": 5.34,
+          "productCode": "FRCM",
+          "rateField": 18,
+          "publishedDate": "2026-10-09"
+        },
+        "fiveYearVariableUninsured": {
+          "rate": 4.45,
+          "productCode": "5YRVARCLO",
+          "rateField": 18,
+          "publishedDate": "2026-10-29"
+        }
+      },
+      "movesIndependentOfBocPolicy": [
+        {
+          "note": "CIBC posted 5-year fixed carries a published date of 2026-10-09, during the long 2.25% policy-rate hold (the previous policy change was 2025-10-29; the next was 2026-10-28). The prior CIBC posted 5-year fixed value is not available from an official archived source, so the size of that move is not stated."
+        }
+      ],
+      "wayback": {
+        "note": "No Wayback CDX rows were found for the public rates-table URL or the productRatesLegacy API in the May\u2013August 2026 window."
+      }
+    }
+  }
+}
