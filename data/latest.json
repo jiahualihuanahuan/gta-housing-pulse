@@ -1,0 +1,13 @@
+{
+  "updatedAt": "2026-11-13T13:40",
+  "macro": {
+    "bocRate": "2.50%",
+    "fixedMortgage": "6.19%",
+    "popGrowth": "~0.5%",
+    "gdp2026": "~0.6%",
+    "housingStartsCanada": "~247k",
+    "unemploymentCanada": "~6.8%",
+    "inflationHeadline": "~2.8%"
+  },
+  "note": "Initial seed. Overwritten by scripts/update_data.py"
+}

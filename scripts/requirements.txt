@@ -1,0 +1,2 @@
+# No external deps required for basic version
+# Add requests, beautifulsoup4, pdfplumber later if you want richer scraping
