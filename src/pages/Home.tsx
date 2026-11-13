@@ -1,4 +1,4 @@
-import { MACRO, OVERALL, BY_TYPE, COMMUNITIES, TRENDS } from '../data'
+import { MACRO, OVERALL, BY_TYPE, COMMUNITIES, TRENDS, MICRO_FACTORS } from '../data'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
 
 function TrendChart({ data, title }: { data: { year: string; price: number; projected: boolean }[]; title: string }) {
@@ -35,6 +35,26 @@ export default function Home() {
         <div className="card"><h3>5-yr Fixed Mortgage</h3><div className="value">{MACRO.fixedMortgage}</div><div className="change negative">Elevated by bond yields</div></div>
         <div className="card"><h3>Canada Population Growth</h3><div className="value">{MACRO.popGrowth}</div><div className="change negative">Near century low</div></div>
         <div className="card"><h3>Ontario GDP 2026</h3><div className="value">{MACRO.gdp2026}</div><div className="change neutral">Trade uncertainty</div></div>
+      </div>
+
+      <h2 className="section-title">Supply, Labour & Inflation</h2>
+      <div className="grid">
+        <div className="card"><h3>Canada Housing Starts (2026)</h3><div className="value">{MACRO.housingStartsCanada}</div><div className="change negative">Declining; weak condo pipeline</div></div>
+        <div className="card"><h3>Unemployment (Canada)</h3><div className="value">{MACRO.unemploymentCanada}</div><div className="change neutral">Soft labour market</div></div>
+        <div className="card"><h3>Headline Inflation</h3><div className="value">{MACRO.inflationHeadline}</div><div className="change neutral">Energy-driven spikes</div></div>
+      </div>
+
+      <h2 className="section-title">Micro Factors (GTA / York Region)</h2>
+      <div className="card" style={{ marginBottom: 20 }}>
+        <h3>School Catchment Premium</h3>
+        <div className="value">{MICRO_FACTORS.schoolPremiumGTA}</div>
+        <p style={{ fontSize: 14, color: '#555', marginTop: 8 }}>{MICRO_FACTORS.note}</p>
+        <p style={{ fontSize: 12, color: '#888' }}>Source: {MICRO_FACTORS.source}</p>
+      </div>
+      <div className="card" style={{ marginBottom: 20 }}>
+        <h3>GO Transit Walk Premium</h3>
+        <div className="value">{MICRO_FACTORS.goTransitPremium}</div>
+        <p style={{ fontSize: 14, color: '#555', marginTop: 8 }}>Homes within walking distance of GO stations (especially Markham) command persistent premiums.</p>
       </div>
 
       <h2 className="section-title">GTA Overall Trend</h2>
@@ -82,7 +102,7 @@ export default function Home() {
       <h2 className="section-title">Neighborhoods / Communities</h2>
       <table>
         <thead>
-          <tr><th>Neighborhood</th><th>City / Area</th><th>Avg Price</th><th>YoY</th><th>Inventory (mo)</th></tr>
+          <tr><th>Neighborhood</th><th>City / Area</th><th>Avg Price</th><th>YoY</th><th>Inventory (mo)</th><th>School / Transit Notes</th></tr>
         </thead>
         <tbody>
           {COMMUNITIES.map((c) => (
@@ -92,6 +112,7 @@ export default function Home() {
               <td>${c.price.toLocaleString()}</td>
               <td className={c.yoy < -1 ? 'negative' : 'neutral'}>{c.yoy}%</td>
               <td>{c.inventory}</td>
+              <td style={{ fontSize: 12 }}>{c.schoolNote} · {c.transitNote}</td>
             </tr>
           ))}
         </tbody>

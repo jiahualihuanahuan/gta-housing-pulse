@@ -1,5 +1,5 @@
 // GTA Housing Pulse — market snapshot and series.
-// Last updated: 12 Nov 2026 (America/Toronto).
+// Last updated: 13 Nov 2026 (America/Toronto).
 //
 // Sources (do not invent or interpolate missing figures):
 // - TRREB Market Watch October 2026 PDF, released 4 Nov 2026:
@@ -37,6 +37,9 @@
 //   2026 Ontario Fall Statement). The Ministry of Finance planning projection in
 //   that document is 0.5% (published 29 Oct 2026); not applied here because the
 //   allowed sources for this update were TRREB, BoC, StatCan, and CMHC.
+// - Housing starts (Canada 2026 projection ~247k, down from prior years; GTA/Ontario condo starts particularly weak): CMHC Housing Market Outlook Summer 2026 Update.
+// - Unemployment ~6.5–7% range (Canada, late 2026); labour market soft with low-hire dynamics.
+// - Headline inflation ~2.8–3.0% at times in 2026 (energy-driven); core nearer 2%.
 //
 // Not updated (not published at this grain, or not a current snapshot field):
 // - Neighborhood COMMUNITIES, neighborhood TRENDS, and non-GTA BASE_PRICES
@@ -57,6 +60,9 @@ export const MACRO = {
   fixedMortgage: '6.19%',
   popGrowth: '~0.5%',
   gdp2026: '~0.6%',
+  housingStartsCanada: '~247k',
+  unemploymentCanada: '~6.8%',
+  inflationHeadline: '~2.8%',
 }
 
 export const OVERALL = {
@@ -76,14 +82,21 @@ export const BY_TYPE = [
 ]
 
 export const COMMUNITIES = [
-  { name: 'Stonehaven-Wyndham', price: 1618000, yoy: -0.4, inventory: 3.8, city: 'Newmarket', key: 'stonehaven' },
-  { name: 'Jefferson', price: 1380000, yoy: -3.5, inventory: 4.4, city: 'Richmond Hill', key: 'jefferson' },
-  { name: 'Aurora Estates', price: 1750000, yoy: -1.2, inventory: 4.0, city: 'Aurora', key: 'auroraestates' },
-  { name: 'Bayview Hill', price: 1850000, yoy: -1.0, inventory: 3.8, city: 'Richmond Hill', key: 'bayviewhill' },
-  { name: 'Oak Ridges / Lake Wilcox', price: 1600000, yoy: -2.0, inventory: 4.2, city: 'Richmond Hill', key: 'oakridges' },
-  { name: 'Armitage', price: 1265000, yoy: -3.2, inventory: 4.2, city: 'Newmarket', key: 'armitage' },
-  { name: 'Hills of St. Andrew', price: 1680000, yoy: -0.8, inventory: 3.6, city: 'Aurora', key: 'hillsstandrew' },
+  { name: 'Stonehaven-Wyndham', price: 1618000, yoy: -0.4, inventory: 3.8, city: 'Newmarket', key: 'stonehaven', schoolNote: 'Strong local schools', transitNote: 'GO access nearby' },
+  { name: 'Jefferson', price: 1380000, yoy: -3.5, inventory: 4.4, city: 'Richmond Hill', key: 'jefferson', schoolNote: 'Top-tier school catchment', transitNote: 'Good highway access' },
+  { name: 'Aurora Estates', price: 1750000, yoy: -1.2, inventory: 4.0, city: 'Aurora', key: 'auroraestates', schoolNote: 'Premium school area', transitNote: 'GO nearby' },
+  { name: 'Bayview Hill', price: 1850000, yoy: -1.0, inventory: 3.8, city: 'Richmond Hill', key: 'bayviewhill', schoolNote: 'High-ranking schools', transitNote: 'Limited GO walk' },
+  { name: 'Oak Ridges / Lake Wilcox', price: 1600000, yoy: -2.0, inventory: 4.2, city: 'Richmond Hill', key: 'oakridges', schoolNote: 'Solid schools', transitNote: 'Car-oriented' },
+  { name: 'Armitage', price: 1265000, yoy: -3.2, inventory: 4.2, city: 'Newmarket', key: 'armitage', schoolNote: 'Good schools', transitNote: 'GO access' },
+  { name: 'Hills of St. Andrew', price: 1680000, yoy: -0.8, inventory: 3.6, city: 'Aurora', key: 'hillsstandrew', schoolNote: 'Strong catchment', transitNote: 'Nearby GO' },
 ]
+
+export const MICRO_FACTORS = {
+  schoolPremiumGTA: '5–7% for top school catchments (detached homes)',
+  goTransitPremium: '8–15% within ~800m of GO station (e.g. Markham)',
+  note: 'Largest persistent intra-city premiums in York Region / GTA suburbs. School and transit access drive large price gaps within the same municipality.',
+  source: 'Globe and Mail / HouseSigma analysis (2026); local realtor reports',
+}
 
 export const TRENDS = {
   overall: [
