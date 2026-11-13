@@ -3,9 +3,10 @@
 Interactive dashboard for Greater Toronto Area housing market data and scenario forecasting.
 
 ## Features
-- Macro overview (rates, population, GDP)
+- Macro overview (rates, population, GDP, housing starts, labour market, inflation)
+- Micro factors (school catchment & GO transit premiums)
 - GTA overall and by property type
-- Community snapshots
+- Community snapshots (with school/transit notes)
 - Adjustable forecast with sliders for rate, population, inventory, and confidence
 
 ## Stack
@@ -22,13 +23,16 @@ Then open http://localhost:5173
 
 ## Data
 
-Current snapshot is **October 2026** (All TRREB Areas / GTA), last updated 12 Nov 2026 (America/Toronto). The forecast model is a simple factor scenario tool for exploration, not investment advice. Do not treat projections as guarantees.
+Current snapshot is **October 2026** (All TRREB Areas / GTA), last updated 13 Nov 2026 (America/Toronto). The forecast model is a simple factor scenario tool for exploration, not investment advice. Do not treat projections as guarantees.
 
 ### Sources and as-of dates
 - **TRREB Market Watch October 2026** (released 4 Nov 2026): monthly sales, average prices, new listings, active listings, SNLR trend, months-of-inventory trend, and MLS® HPI benchmarks. PDF: https://trreb.ca/wp-content/files/market-stats/market-watch/mw2610.pdf. News release: https://www.globenewswire.com/news-release/2026/11/04/3395067/0/en/inflation-and-borrowing-costs-impacted-october-gta-real-estate-market.html.
 - **Bank of Canada policy rate**: 2.50%, announced 28 Oct 2026, effective 29 Oct 2026. https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/ and https://www.bankofcanada.ca/2026/10/fad-press-release-2026-10-28/.
 - **Bank of Canada posted conventional 5-year mortgage** (series V80691335): 6.19% as of 11 Nov 2026. https://www.bankofcanada.ca/rates/banking-and-financial-statistics/posted-interest-rates-offered-by-chartered-banks/.
 - **Statistics Canada** population estimates, Q2 2026, released 23 Sep 2026: Canada 41,798,407 on 1 Jul 2026, +0.5% year over year. https://www150.statcan.gc.ca/n1/daily-quotidien/260923/dq260923b-eng.htm and https://www.statcan.gc.ca/o1/en/plus/9334-weekly-review-september-21-25-2026.
+- **CMHC Housing Market Outlook** (Summer 2026 Update): Canada housing starts projected ~247k in 2026 (declining; weak GTA condo pipeline).
+- Labour market: Canada unemployment in the ~6.5–7% range (late 2026).
+- Inflation: Headline ~2.8–3.0% at times in 2026 (energy-driven).
 
 ### October 2026 GTA snapshot (from Market Watch)
 - Sales 5,603 (−7.9% YoY); new listings 14,173 (−11.9% YoY); active listings 25,098 (−10.0% YoY).
@@ -42,6 +46,11 @@ These city-wide All Home Types figures are official but are not a substitute for
 - Aurora: 50 sales, average $1,170,302, SNLR trend 35.3%, 294 active listings, MOI trend 5.0. HPI Composite benchmark $1,096,900 (−7.37% YoY).
 - Newmarket: 98 sales, average $959,094, SNLR trend 38.5%, 301 active listings, MOI trend 4.1. HPI Composite benchmark $960,700 (−7.79% YoY).
 - Richmond Hill: 185 sales, average $1,193,772, SNLR trend 33.8%, 940 active listings, MOI trend 5.5. HPI Composite benchmark $1,145,900 (−7.32% YoY).
+
+### Micro factors (added 13 Nov 2026)
+- School catchment premium: ~5–7% for top-rated public school boundaries on detached homes (GTA).
+- GO Transit walk premium: ~8–15% within ~800 m of a GO station (notable in Markham and similar suburbs).
+- These create the largest persistent price gaps within the same municipality in York Region.
 
 ### Left unchanged
 - Neighbourhood prices, YoY, inventory, and forecast base prices (not in Market Watch).
